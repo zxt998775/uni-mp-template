@@ -2,7 +2,6 @@
 import { useMemberStore } from '@/stores'
 // 请求基地址
 // http.ts
-
 const baseURL = import.meta.env.VITE_API_URL as string
 // 拦截器配置
 const httpInterceptor = {

@@ -93,7 +93,6 @@ page {
     transform: translateY(-50%);
   }
 }
-
 /* 操作按钮 */
 .action {
   text-align: center;

@@ -8,7 +8,6 @@ const orderTypes = [
   { type: 3, text: '待收货', icon: 'icon-check' },
   { type: 4, text: '待评价', icon: 'icon-comment' }
 ]
-
 // 获取会员信息
 const memberStore = useMemberStore()
 console.log('memberStore :>> ', memberStore.profile?.avatar)

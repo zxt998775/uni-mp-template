@@ -9,7 +9,6 @@
   </div>
   <div class="test bg-yellow-200 h-100 w-730"></div> -->
 </template>
-
 <style lang="scss">
 //
 </style>
