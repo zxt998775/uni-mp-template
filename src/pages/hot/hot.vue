@@ -113,7 +113,6 @@ page {
   height: 100%;
   background-color: #f4f4f4;
 }
-
 .viewport {
   display: flex;
   flex-direction: column;
@@ -121,7 +120,6 @@ page {
   padding: 180rpx 0 0;
   position: relative;
 }
-
 .cover {
   width: 750rpx;
   height: 225rpx;
@@ -131,11 +129,9 @@ page {
   left: 0;
   top: 0;
 }
-
 .scroll-view {
   flex: 1;
 }
-
 .tabs {
   display: flex;
   justify-content: space-evenly;
@@ -149,12 +145,10 @@ page {
   background-color: #fff;
   position: relative;
   z-index: 9;
-
   .text {
     margin: 0 20rpx;
     position: relative;
   }
-
   .active {
     &::after {
       content: '';
@@ -168,13 +162,11 @@ page {
     }
   }
 }
-
 .goods {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 20rpx 20rpx;
-
   .navigator {
     width: 345rpx;
     padding: 20rpx;
@@ -182,27 +174,22 @@ page {
     border-radius: 10rpx;
     background-color: #fff;
   }
-
   .thumb {
     width: 305rpx;
     height: 305rpx;
   }
-
   .name {
     height: 88rpx;
     font-size: 26rpx;
   }
-
   .price {
     line-height: 1;
     color: #cf4444;
     font-size: 30rpx;
   }
-
   .symbol {
     font-size: 70%;
   }
-
   .decimal {
     font-size: 70%;
   }

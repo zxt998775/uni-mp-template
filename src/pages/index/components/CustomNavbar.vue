@@ -22,8 +22,9 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 /* 自定义导航条 */
 .navbar {
   @apply flex flex-col pt-20;
-  background-image: url(@/static/images/navigator_bg.png);
+  // background-image: url(@/static/images/navigator_bg.png);
   background-size: cover;
+  background-color: pink;
   .logo-text {
     flex: 1;
     line-height: 28rpx;

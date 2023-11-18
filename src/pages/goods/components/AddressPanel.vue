@@ -62,7 +62,6 @@
   max-height: 540rpx;
   overflow: auto;
   padding: 20rpx;
-
   .item {
     padding: 30rpx 50rpx 30rpx 60rpx;
     background-size: 40rpx;
@@ -71,7 +70,6 @@
     background-image: url(https://pcapi-xiaotuxian-front-devtest.itheima.net/miniapp/images/locate.png);
     position: relative;
   }
-
   .icon {
     color: #999;
     font-size: 40rpx;
@@ -80,21 +78,17 @@
     top: 50%;
     right: 0;
   }
-
   .icon-checked {
     color: #27ba9b;
   }
-
   .icon-ring {
     color: #444;
   }
-
   .user {
     font-size: 28rpx;
     color: #444;
     font-weight: 500;
   }
-
   .address {
     font-size: 26rpx;
     color: #666;

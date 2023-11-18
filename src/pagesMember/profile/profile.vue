@@ -11,7 +11,6 @@ const profile = ref({} as ProfileDetail)
 const getMemberProfileData = async () => {
   const res = await getMemberProfileAPI()
   profile.value = res.result
-  profile.value.id = res.result.id
   console.log(profile.value)
   if (profile.value.provinceCode && profile.value.cityCode && profile.value.countyCode) {
     fullLocation.value =
@@ -23,24 +22,25 @@ const getMemberProfileData = async () => {
   }
   profile.value.birthday = profile.value.birthday?.split('T')[0]
   // codeToText[地区码] 匹配地区名称，但是 element-china-area-data 里的code去掉了末尾的0，所以去要使用正则表达式替换
-
   // profile.value.fullLocation = fullLocation.value
 }
 onLoad(() => {
   getMemberProfileData()
 })
 const memberStore = useMemberStore()
+
+// 修改头像
 const onAvatarChange = () => {
-  // 调用拍照/选择图片
+  // 调⽤拍照/选择图⽚
   uni.chooseMedia({
-    // 文件个数
+    // ⽂件个数
     count: 1,
-    // 文件类型
+    // ⽂件类型
     mediaType: ['image'],
     success: (res) => {
       // 本地路径
       const { tempFilePath } = res.tempFiles[0]
-      // 文件上传
+      // ⽂件上传
       uni.uploadFile({
         url: '/user/profile/avatar',
         name: 'file', // 后端数据字段名
@@ -50,7 +50,7 @@ const onAvatarChange = () => {
           if (res.statusCode === 200) {
             // 提取头像
             const avatar = JSON.parse(res.data).result
-            // 当前页面更新头像
+            // 当前⻚⾯更新头像
             profile.value!.avatar = avatar
             // 更新 Store 头像
             memberStore.profile!.avatar = avatar
@@ -63,29 +63,33 @@ const onAvatarChange = () => {
     }
   })
 }
+
+// 获取个⼈信息，修改个⼈信息需提供初始值
+
 // 修改性别
 const onGenderChange: UniHelper.RadioGroupOnChange = (ev) => {
   profile.value.gender = parseInt(ev.detail.value) as Gender
 }
-// 修改生日
+
+// 修改⽣⽇
 const onBirthdayChange: UniHelper.DatePickerOnChange = (ev) => {
-  profile.value.birthday = ev.detail.value + ' 00:00:00'
+  profile.value.birthday = ev.detail.value
 }
 // 修改城市
 let fullLocationCode: [string, string, string] = ['', '', '']
 const onFullLocationChange: UniHelper.RegionPickerOnChange = (ev) => {
-  // 修改前端界面
+  // 修改前端界⾯
   fullLocation.value = ev.detail.value.join(' ')
   // 提交后端更新
   fullLocationCode = ev.detail.code!
 }
+
 // 点击保存提交表单
 const onSubmit = async () => {
-  const { id, nickname, gender, birthday, profession } = profile.value
+  const { nickname, gender, birthday, profession } = profile.value
   console.log(fullLocationCode)
   console.log(birthday)
   const res = await putMemberProfileAPI({
-    id,
     nickname,
     gender,
     birthday,
@@ -105,26 +109,24 @@ const onSubmit = async () => {
 <template>
   <view class="viewport">
     <!-- 导航栏 -->
-    <view class="navbar" :style="{
-      paddingTop: safeAreaInsets?.top + 'px'
-    }">
+    <view class="navbar" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
       <navigator open-type="navigateBack" class="back icon-left" hover-cla ss="none"></navigator>
-      <view class="title">个人信息</view>
+      <view class="title">个⼈信息</view>
     </view>
     <!-- 头像 -->
     <view class="avatar">
       <view class="avatar-content">
-        <image class="image" :src="profile?.avatar" mode="aspectFill" @tap="onAvatarChange" />
+        <image @tap="onAvatarChange" class="image" :src="profile?.avatar" mode="aspectFill" />
         <text class="text">点击修改头像</text>
       </view>
     </view>
     <!-- 表单 -->
     <view class="form">
-      <!--表单内容-->
-      <view cLass="form-content">
+      <!-- 表单内容 -->
+      <view class="form-content">
         <view class="form-item">
           <text class="label">账号</text>
-          <text class="account">{{ profile?.account }}</text>
+          <text class="account">{{ profile.account }}</text>
         </view>
         <view class="form-item">
           <text class="label">昵称</text>
@@ -133,27 +135,38 @@ const onSubmit = async () => {
         <view class="form-item">
           <text class="label">性别</text>
           <radio-group @change="onGenderChange">
-            <Label class="radio">
+            <label class="radio">
               <radio value="0" color="#27ba9b" :checked="profile?.gender === 0" />
               男
-            </Label>
+            </label>
             <label class="radio">
               <radio value="1" color="#27ba9b" :checked="profile?.gender === 1" />
-              女
+              ⼥
             </label>
           </radio-group>
         </view>
         <view class="form-item">
-          <text class="label">生日</text>
-          <picker class="picker" mode="date" start="1900-01-01" :end="new Date()" :value="profile?.birthday"
-            @change="onBirthdayChange">
+          <text class="label">⽣⽇</text>
+          <picker
+            class="picker"
+            mode="date"
+            start="1900-01-01"
+            :end="new Date()"
+            :value="profile.birthday"
+            @change="onBirthdayChange"
+          >
             <view v-if="profile.birthday">{{ profile.birthday }}</view>
-            <view class="placeholder" v-else>请选择日期</view>
+            <view class="placeholder" v-else>请选择⽇期</view>
           </picker>
         </view>
         <view class="form-item">
           <text class="label">城市</text>
-          <picker class="picker" mode="region" :value="fullLocation?.split(' ')" @change="onFullLocationChange">
+          <picker
+            class="picker"
+            mode="region"
+            :value="fullLocation?.split(' ')"
+            @change="onFullLocationChange"
+          >
             <view v-if="fullLocation">{{ fullLocation }}</view>
             <view class="placeholder" v-else>请选择城市</view>
           </picker>
@@ -163,8 +176,8 @@ const onSubmit = async () => {
           <input class="input" type="text" placeholder="请填写职业" v-model="profile.profession" />
         </view>
       </view>
-      <!--提交按钮-->
-      <button class="form-button" @tap="onSubmit">保 存</button>
+      <!-- 提交按钮 -->
+      <button @tap="onSubmit" class="form-button">保 存</button>
     </view>
   </view>
 </template>
@@ -210,7 +223,7 @@ page {
   }
 }
 
-//头像
+// 头 像
 .avatar {
   text-align: center;
   width: 100%;
@@ -236,7 +249,7 @@ page {
   }
 }
 
-//表单
+// 表 单
 .form {
   background-color: #f4f4f4;
 

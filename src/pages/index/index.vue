@@ -28,6 +28,7 @@ import CategoryPanel from './components/CategoryPanel'
 import HotPannel from './components/HotPannel'
 import type { GuessInstance } from '@/types/components'
 import Guess from '@/components/Guess/Guess'
+import PageSkeleton from './components/Pageskeleton'
 // 获取轮播图
 const bannerList = ref<BannerItem[]>([])
 
@@ -82,14 +83,12 @@ page {
   height: 100%;
   overflow: hidden;
 }
-
 /* 设置滚动区高度 */
 .viewport {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-
 .scroll-view {
   flex: 1;
   overflow: hidden;

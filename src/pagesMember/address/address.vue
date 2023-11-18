@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { codeToText } from '@/utils/element-china-area-data.mjs'
 // 获取收货地址列表数据
 const addressList = ref<AddressItem[]>([])
@@ -8,20 +7,20 @@ const getMemberAddressData = async () => {
   addressList.value = res.result
 }
 
-// 初始化调用(页面显示)
 onShow(() => {
   getMemberAddressData()
 })
-//删除收货地址
+
+// 删除收货地址
 const onDeleteAddress = (id: string) => {
   //二次确认
   uni.showModal({
-    content: '删除地址?',
+    content: '删除地址？',
     success: async (res) => {
       if (res.confirm) {
-        //根据id删除收货地址
+        //
         await deleteMemberAddressByIdAPI(id)
-        //重新获取收货地址列表
+        //
         getMemberAddressData()
       }
     }
