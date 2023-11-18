@@ -103,19 +103,12 @@ const selectArrText = computed(() => {
 
 <template>
   <!-- SKU弹窗组件 -->
-  <vk-data-goods-sku-popup
-    v-model="isShowSku"
-    :localdata="localdata"
-    :mode="mode"
-    add-cart-background-color="#FFA868"
-    buy-now-background-color="27BA9B"
-    ref="skuPopuRef"
-    ：actived-style="{
+  <vk-data-goods-sku-popup v-model="isShowSku" :localdata="localdata" :mode="mode" add-cart-background-color="#FFA868"
+    buy-now-background-color="27BA9B" ref="skuPopuRef" ：actived-style="{
       color: '#27BA9B',
       borderColor: '#27BA9B',
       backgroundColor: '#E9F8F5'
-    }"
-  />
+    }" />
   <!-- 弹窗测试 -->
   <scroll-view scroll-y class="viewport">
     <!-- 基本信息 -->
@@ -190,13 +183,8 @@ const selectArrText = computed(() => {
         <text>同类推荐</text>
       </view>
       <view class="content">
-        <navigator
-          v-for="item in goods?.similarProducts"
-          :key="item.id"
-          class="goods"
-          hover-class="none"
-          :url="`/pages/goods/goods?id=${item.id}`"
-        >
+        <navigator v-for="item in goods?.similarProducts" :key="item.id" class="goods" hover-class="none"
+          :url="`/pages/goods/goods?id=${item.id}`">
           <image class="image" mode="aspectFill" :src="item.picture"></image>
           <view class="name ellipsis">{{ item.name }}</view>
           <view class="price">
@@ -491,7 +479,7 @@ page {
   .buttons {
     display: flex;
 
-    & > view {
+    &>view {
       width: 220rpx;
       text-align: center;
       line-height: 72rpx;
@@ -538,5 +526,4 @@ page {
       font-size: 34rpx;
     }
   }
-}
-</style>
+}</style>
