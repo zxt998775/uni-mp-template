@@ -105,12 +105,9 @@ const onSubmit = async () => {
 <template>
   <view class="viewport">
     <!-- 导航栏 -->
-    <view
-      class="navbar"
-      :style="{
-        paddingTop: safeAreaInsets?.top + 'px'
-      }"
-    >
+    <view class="navbar" :style="{
+      paddingTop: safeAreaInsets?.top + 'px'
+    }">
       <navigator open-type="navigateBack" class="back icon-left" hover-cla ss="none"></navigator>
       <view class="title">个人信息</view>
     </view>
@@ -148,26 +145,15 @@ const onSubmit = async () => {
         </view>
         <view class="form-item">
           <text class="label">生日</text>
-          <picker
-            class="picker"
-            mode="date"
-            start="1900-01-01"
-            :end="new Date()"
-            :value="profile?.birthday"
-            @change="onBirthdayChange"
-          >
+          <picker class="picker" mode="date" start="1900-01-01" :end="new Date()" :value="profile?.birthday"
+            @change="onBirthdayChange">
             <view v-if="profile.birthday">{{ profile.birthday }}</view>
             <view class="placeholder" v-else>请选择日期</view>
           </picker>
         </view>
         <view class="form-item">
           <text class="label">城市</text>
-          <picker
-            class="picker"
-            mode="region"
-            :value="fullLocation?.split(' ')"
-            @change="onFullLocationChange"
-          >
+          <picker class="picker" mode="region" :value="fullLocation?.split(' ')" @change="onFullLocationChange">
             <view v-if="fullLocation">{{ fullLocation }}</view>
             <view class="placeholder" v-else>请选择城市</view>
           </picker>
