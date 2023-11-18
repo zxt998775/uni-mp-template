@@ -44,20 +44,16 @@ const putMemberAddressByIdAPI = (id, data) => {
     method: "POST",
     url: `/member/updateAddress`,
     data: { id, ...data }
-  });
-};
-const deleteMemberAddressByIdAPI = (id) => {
-  return utils_http.http({
-    // method: "DELETE",
-    method: "POST",
-    url: `/member/delAddress?id=${id}`
-  });
-};
-exports.deleteMemberAddressByIdAPI = deleteMemberAddressByIdAPI;
-exports.getCategoryTopAPI = getCategoryTopAPI;
-exports.getGoodsByIdAPI = getGoodsByIdAPI;
-exports.getMemberAddressAPI = getMemberAddressAPI;
-exports.getMemberAddressByIdAPI = getMemberAddressByIdAPI;
-exports.postMemberAddressAPI = postMemberAddressAPI;
-exports.putMemberAddressByIdAPI = putMemberAddressByIdAPI;
-//# sourceMappingURL=category.api.js.map
+  })
+}
+
+/**
+ * 删除收货地址
+ * @param id 地址id(路径参数)
+ */
+export const deleteMemberAddressByIdAPI = (id: string) => {
+  return http({
+    method: 'DELETE',
+    url: `/member/address?id=${id}`
+  })
+}
