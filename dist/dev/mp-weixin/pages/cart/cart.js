@@ -86,7 +86,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
             d: common_vendor.t(item.name),
             e: common_vendor.t(item.attrsText),
             f: common_vendor.t(item.price),
-            g: `/pages/goods/goods?id=${item.id}`,
+            g: `/pages/goods/goods?id=${item.goodsId}`,
             h: common_vendor.o(onChangeCount, item.id),
             i: "6e2b01b7-2-" + i0 + "," + ("6e2b01b7-1-" + i0),
             j: common_vendor.o(($event) => item.count = $event, item.id),

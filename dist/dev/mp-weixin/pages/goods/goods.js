@@ -30,6 +30,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       /* Cart */
     );
     const openSkuPopup = (val) => {
+      console.log(val + "显示SKU弹窗");
       isShowSku.value = true;
       mode.value = val;
     };
@@ -86,6 +87,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       common_vendor.index.showToast({ title: "添加成功" });
       isShowSku.value = false;
     };
+    const onBuyNow = async () => {
+      console.log("购买");
+    };
     return (_ctx, _cache) => {
       var _a, _b, _c, _d, _e, _f, _g, _h, _i;
       return common_vendor.e({
@@ -93,8 +97,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           "k": "skuPopuRef"
         }),
         b: common_vendor.o(onAddCart),
-        c: common_vendor.o(($event) => common_vendor.isRef(isShowSku) ? isShowSku.value = $event : null),
-        d: common_vendor.p({
+        c: common_vendor.o(onBuyNow),
+        d: common_vendor.o(($event) => common_vendor.isRef(isShowSku) ? isShowSku.value = $event : null),
+        e: common_vendor.p({
           localdata: common_vendor.unref(localdata),
           mode: common_vendor.unref(mode),
           ["add-cart-background-color"]: "#FFA868",
@@ -102,61 +107,61 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
           ["：actived-style"]: "{\n      color: '#27BA9B',\n      borderColor: '#27BA9B',\n      backgroundColor: '#E9F8F5'\n    }",
           modelValue: common_vendor.unref(isShowSku)
         }),
-        e: common_vendor.f((_a = common_vendor.unref(goods)) == null ? void 0 : _a.mainPictures, (item, k0, i0) => {
+        f: common_vendor.f((_a = common_vendor.unref(goods)) == null ? void 0 : _a.mainPictures, (item, k0, i0) => {
           return {
             a: common_vendor.o(($event) => onTapImage(item), item),
             b: item,
             c: item
           };
         }),
-        f: common_vendor.o(onChange),
-        g: common_vendor.t(common_vendor.unref(currentIndex) + 1),
-        h: common_vendor.t((_b = common_vendor.unref(goods)) == null ? void 0 : _b.mainPictures.length),
-        i: common_vendor.t((_c = common_vendor.unref(goods)) == null ? void 0 : _c.price),
-        j: common_vendor.t((_d = common_vendor.unref(goods)) == null ? void 0 : _d.name),
-        k: common_vendor.t((_e = common_vendor.unref(goods)) == null ? void 0 : _e.description),
-        l: common_vendor.t(common_vendor.unref(selectArrText)),
-        m: common_vendor.o(($event) => openSkuPopup(
+        g: common_vendor.o(onChange),
+        h: common_vendor.t(common_vendor.unref(currentIndex) + 1),
+        i: common_vendor.t((_b = common_vendor.unref(goods)) == null ? void 0 : _b.mainPictures.length),
+        j: common_vendor.t((_c = common_vendor.unref(goods)) == null ? void 0 : _c.price),
+        k: common_vendor.t((_d = common_vendor.unref(goods)) == null ? void 0 : _d.name),
+        l: common_vendor.t((_e = common_vendor.unref(goods)) == null ? void 0 : _e.description),
+        m: common_vendor.t(common_vendor.unref(selectArrText)),
+        n: common_vendor.o(($event) => openSkuPopup(
           1
           /* Both */
         )),
-        n: common_vendor.o(($event) => openPopup("address")),
-        o: common_vendor.o(($event) => openPopup("service")),
-        p: common_vendor.unref(popupName) === "address"
+        o: common_vendor.o(($event) => openPopup("address")),
+        p: common_vendor.o(($event) => openPopup("service")),
+        q: common_vendor.unref(popupName) === "address"
       }, common_vendor.unref(popupName) === "address" ? {
-        q: common_vendor.o(($event) => {
+        r: common_vendor.o(($event) => {
           var _a2;
           return (_a2 = common_vendor.unref(popup)) == null ? void 0 : _a2.close();
         })
       } : {}, {
-        r: common_vendor.unref(popupName) === "service"
+        s: common_vendor.unref(popupName) === "service"
       }, common_vendor.unref(popupName) === "service" ? {
-        s: common_vendor.o(($event) => {
+        t: common_vendor.o(($event) => {
           var _a2;
           return (_a2 = common_vendor.unref(popup)) == null ? void 0 : _a2.close();
         })
       } : {}, {
-        t: common_vendor.sr(popup, "e4f6d536-1", {
+        v: common_vendor.sr(popup, "e4f6d536-1", {
           "k": "popup"
         }),
-        v: common_vendor.p({
+        w: common_vendor.p({
           type: "bottom",
           ["background-color"]: "#fff"
         }),
-        w: common_vendor.f((_f = common_vendor.unref(goods)) == null ? void 0 : _f.properties, (item, k0, i0) => {
+        x: common_vendor.f((_f = common_vendor.unref(goods)) == null ? void 0 : _f.properties, (item, k0, i0) => {
           return {
             a: common_vendor.t(item.name),
             b: common_vendor.t(item.value),
             c: item.name
           };
         }),
-        x: common_vendor.f((_g = common_vendor.unref(goods)) == null ? void 0 : _g.productPictures, (item, k0, i0) => {
+        y: common_vendor.f((_g = common_vendor.unref(goods)) == null ? void 0 : _g.productPictures, (item, k0, i0) => {
           return {
             a: item,
             b: item
           };
         }),
-        y: common_vendor.f((_h = common_vendor.unref(goods)) == null ? void 0 : _h.similarProducts, (item, k0, i0) => {
+        z: common_vendor.f((_h = common_vendor.unref(goods)) == null ? void 0 : _h.similarProducts, (item, k0, i0) => {
           return {
             a: item.picture,
             b: common_vendor.t(item.name),
@@ -165,15 +170,15 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
             e: `/pages/goods/goods?id=${item.id}`
           };
         }),
-        z: common_vendor.o(($event) => openSkuPopup(
+        A: common_vendor.o(($event) => openSkuPopup(
           2
           /* Cart */
         )),
-        A: common_vendor.o(($event) => openSkuPopup(
+        B: common_vendor.o(($event) => openSkuPopup(
           3
           /* Buy */
         )),
-        B: ((_i = common_vendor.unref(safeAreaInsets)) == null ? void 0 : _i.bottom) + "px"
+        C: ((_i = common_vendor.unref(safeAreaInsets)) == null ? void 0 : _i.bottom) + "px"
       });
     };
   }
