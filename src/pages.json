@@ -139,6 +139,40 @@
           }
         }
       ]
+    },
+    {
+      "root": "pagesOrder/detail",
+      "pages": [
+        {
+          "path": "detail",
+          "style": {
+            "navigationBarTitleText": "订单详情"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pagesOrder/payment",
+      "pages": [
+        {
+          "path": "payment",
+          "style": {
+            "navigationBarTitleText": "订单支付"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pagesOrder/list",
+      "pages": [
+        {
+          "path": "list",
+          "style": {
+            "navigationBarTitleText": "订单列表",
+            "enablePullDownRefresh": true
+          }
+        }
+      ]
     }
   ],
   // 分包预下载规则

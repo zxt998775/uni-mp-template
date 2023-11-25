@@ -5,6 +5,7 @@ const api_cart_api = require("../../api/cart.api.js");
 require("../../utils/http.js");
 require("../../stores/index.js");
 require("../../stores/modules/member.js");
+require("../../stores/modules/address.js");
 if (!Array) {
   const _easycom_vk_data_goods_sku_popup2 = common_vendor.resolveComponent("vk-data-goods-sku-popup");
   const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
@@ -87,8 +88,10 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       common_vendor.index.showToast({ title: "添加成功" });
       isShowSku.value = false;
     };
-    const onBuyNow = async () => {
-      console.log("购买");
+    const onBuyNow = (ev) => {
+      common_vendor.index.navigateTo({
+        url: `/pagesOrder/create/create?id=${ev.goods_id}&count=${ev.buy_num}&attrsText=${selectArrText.value}`
+      });
     };
     return (_ctx, _cache) => {
       var _a, _b, _c, _d, _e, _f, _g, _h, _i;

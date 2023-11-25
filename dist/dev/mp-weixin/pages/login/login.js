@@ -4,6 +4,7 @@ const api_login = require("../../api/login.js");
 const stores_modules_member = require("../../stores/modules/member.js");
 require("../../utils/http.js");
 require("../../stores/index.js");
+require("../../stores/modules/address.js");
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "login",
   setup(__props) {

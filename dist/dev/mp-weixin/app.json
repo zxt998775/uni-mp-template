@@ -23,6 +23,24 @@
       "pages": [
         "create"
       ]
+    },
+    {
+      "root": "pagesOrder/detail",
+      "pages": [
+        "detail"
+      ]
+    },
+    {
+      "root": "pagesOrder/payment",
+      "pages": [
+        "payment"
+      ]
+    },
+    {
+      "root": "pagesOrder/list",
+      "pages": [
+        "list"
+      ]
     }
   ],
   "window": {

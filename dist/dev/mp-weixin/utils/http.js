@@ -2,7 +2,7 @@
 const common_vendor = require("../common/vendor.js");
 require("../stores/index.js");
 const stores_modules_member = require("../stores/modules/member.js");
-const baseURL = "http://127.0.0.1:8088/shop-api";
+const baseURL = "http://118.31.54.68:8088/shop-api";
 const httpInterceptor = {
   // 拦截前触发
   invoke(options) {

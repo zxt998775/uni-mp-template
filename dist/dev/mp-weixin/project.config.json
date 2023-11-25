@@ -1,5 +1,9 @@
 {
   "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "setting": {
     "urlCheck": false,
     "es6": true,
@@ -10,10 +14,6 @@
     "useCompilerPlugins": [
       "sass"
     ],
-    "coverView": false,
-    "enhance": false,
-    "showShadowRootInWxmlPanel": false,
-    "packNpmRelationList": [],
     "ignoreUploadUnusedFiles": true,
     "babelSetting": {
       "ignore": [],
@@ -22,16 +22,12 @@
     }
   },
   "compileType": "miniprogram",
+  "libVersion": "3.2.1",
   "appid": "wxcda58b86b64e9001",
+  "projectname": "哪李贵了",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  },
-  "projectname": "哪李贵了",
-  "libVersion": "3.2.1",
-  "packOptions": {
-    "ignore": [],
-    "include": []
   }
 }

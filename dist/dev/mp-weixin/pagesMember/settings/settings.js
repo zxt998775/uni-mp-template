@@ -2,6 +2,7 @@
 const common_vendor = require("../../common/vendor.js");
 require("../../stores/index.js");
 const stores_modules_member = require("../../stores/modules/member.js");
+require("../../stores/modules/address.js");
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "settings",
   setup(__props) {

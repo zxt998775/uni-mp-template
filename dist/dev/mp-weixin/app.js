@@ -3,6 +3,7 @@ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
 const stores_index = require("./stores/index.js");
 require("./stores/modules/member.js");
+require("./stores/modules/address.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/my/my.js";
@@ -16,6 +17,9 @@ if (!Math) {
   "./pagesMember/address/address.js";
   "./pagesMember/address/address-form.js";
   "./pagesOrder/create/create.js";
+  "./pagesOrder/detail/detail.js";
+  "./pagesOrder/payment/payment.js";
+  "./pagesOrder/list/list.js";
 }
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "App",

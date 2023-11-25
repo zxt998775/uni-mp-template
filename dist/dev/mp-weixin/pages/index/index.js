@@ -4,6 +4,7 @@ const api_home_api = require("../../api/home.api.js");
 require("../../utils/http.js");
 require("../../stores/index.js");
 require("../../stores/modules/member.js");
+require("../../stores/modules/address.js");
 if (!Array) {
   const _easycom_wSwiper2 = common_vendor.resolveComponent("wSwiper");
   _easycom_wSwiper2();

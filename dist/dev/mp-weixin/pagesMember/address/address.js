@@ -2,6 +2,7 @@
 const common_vendor = require("../../common/vendor.js");
 const utils_elementChinaAreaData = require("../../utils/element-china-area-data.js");
 const api_category_api = require("../../api/category.api.js");
+const stores_modules_address = require("../../stores/modules/address.js");
 require("../../utils/http.js");
 require("../../stores/index.js");
 require("../../stores/modules/member.js");
@@ -37,6 +38,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }
       });
     };
+    const onChangeAddress = (item) => {
+      const addressStore = stores_modules_address.useAddressStore();
+      addressStore.changeSelectedAddress(item);
+      common_vendor.index.navigateBack();
+    };
     return (_ctx, _cache) => {
       return {
         a: common_vendor.f(common_vendor.unref(addressList), (item, k0, i0) => {
@@ -51,9 +57,12 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
             f: common_vendor.t(common_vendor.unref(utils_elementChinaAreaData.d)[(_c = item.countyCode) == null ? void 0 : _c.replace(/0+$/, "")]),
             g: common_vendor.t(item.address),
             h: `/pagesMember/address/address-form?id=${item.id}`,
-            i: common_vendor.o(($event) => onDeleteAddress(item.id), item.id),
-            j: item.id,
-            k: "4c11414a-1-" + i0 + ",4c11414a-0"
+            i: common_vendor.o(() => {
+            }, item.id),
+            j: common_vendor.o(($event) => onChangeAddress(item), item.id),
+            k: common_vendor.o(($event) => onDeleteAddress(item.id), item.id),
+            l: item.id,
+            m: "4c11414a-1-" + i0 + ",4c11414a-0"
           });
         })
       };

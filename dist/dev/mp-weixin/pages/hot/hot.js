@@ -4,6 +4,7 @@ const api_home_api = require("../../api/home.api.js");
 require("../../utils/http.js");
 require("../../stores/index.js");
 require("../../stores/modules/member.js");
+require("../../stores/modules/address.js");
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "hot",
   props: {

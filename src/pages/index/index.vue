@@ -83,12 +83,14 @@ page {
   height: 100%;
   overflow: hidden;
 }
+
 /* 设置滚动区高度 */
 .viewport {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
+
 .scroll-view {
   flex: 1;
   overflow: hidden;
